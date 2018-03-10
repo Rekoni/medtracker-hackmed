@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png">
+    <title>Medtracker</title>
+  </head>
+  <body>
+    <script src="serverScripts.js"></script>
+    <div class="header_image">
+      <img src="MedTracker.png" alt="Website logo and title" width="100%">
+    </div>
+    <div class ="sm-left-pane" id="leftPane">
+      <div class ="lt-pane">
+
+      </div>
+    </div>
+    <div class ="ex-right-pane" id = "rightPane">
+
+    </div>
+    <br>
+    <footer>
+      <p id = "logoutButton"><button type="Button" class="yButton" onclick="logoutClick()">Logout</button></p>
+      <p>Developed by Team Kilburners, The University of Manchester</p>
+    </footer>
+    <script>
+    //Code to log the user out of the website and return to index
+    function logoutClick()
+    {
+      var logout = new XMLHttpRequest();
+      logout.open("POST", "https://medtracker-hackmed-api.herokuapp.com/logout" , true);
+      logout.setRequestHeader("Cache-Control", "no-cache");
+      logout.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      logout.send("token="+parsedJSONData["payload"]["token"]);
+      document.getElementById("leftPane").innerHTML = "";
+      document.getElementById("rightPane").innerHTML = "<h1><a href = \"index.html\">Return to index</a><h1>";
+      document.getElementById("logoutButton").innerHTML = "";
+      localStorage.setItem("userType", null);
+    }
+    </script>
+  </body>
+</html>

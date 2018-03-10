@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png">
+    <title>Medtracker</title>
+  </head>
+
+  <body>
+    <script>
+    localStorage.setItem("userType", null);
+    </script>
+    <script src="serverScripts.js"></script>
+    <nav>
+      <div class="menu">
+        <!--This flex container stores the menu items for the page-->
+        <ul class="flex-container">
+          <li class="flex-item"><a href="index.html">Home</a></li>
+          <li class="flex-item"><a href="about.html">About</a></li>
+          <li class="flex-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="header_image">
+      <img src="MedTracker.png" alt="Website logo and title" width="100%">
+    </div>
+
+    <div class ="left-pane">
+      <!--The left pane holds the user login at the top and the guest login at the bottom-->
+      <div class ="lt-pane">
+        <h1>Login</h1>
+        <br><input type="text" id="uName" placeholder="Email" class="textbox"><br>
+        <br><input type="password" id="pass" placeholder="Password" class="textbox"><br>
+        <br>Click <a href = "resetPass.html">Here </a>to reset password.
+        <br>
+        <button type="Button" class="pButton" onclick="loginClick()">
+          Login
+        </button>
+      </div>
+    </div>
+
+    <div class ="right-pane">
+      <!--The right pane holds the signup form-->
+      <h1>Sign Up</h1>
+      <br><input type="text" id="sEmail" placeholder="Email" class="textbox"><br>
+      <br><input type="text" id="sPhoneNumber" placeholder="Phone number" class="textbox"><br>
+      <br><input type="password" id="sPass" placeholder="Password" class="textbox"><br>
+      <br><input type="password" id="sPassCon" placeholder="Confirm Password" class="textbox"><br>
+
+      <br>
+      <button type="button" class="yButton" onclick="signupClick()">
+        Sign Up
+      </button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+      <p>Developed by Team Kilburners, The University of Manchester</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,173 @@
+html {
+  background: url(bgimage.jpg);
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+.deadlines{
+  width: 90%;
+}
+
+.deadlines td {
+  height: 100px;
+  text-align: left;
+}
+
+.timetable th, .timetable td{
+  width: 15%;
+  border: 2px solid whitesmoke;
+  border-collapse: collapse;
+  }
+
+.timetable td {
+  height: 60px;
+}
+
+.timetable th {
+  height: 40px;
+}
+
+.deadlines th, .deadlines td{
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.deadline-box{
+  max-height: 700px;
+  overflow: auto;
+}
+
+body {
+  background-color: white;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+  padding: 0;
+  list-style: none;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background: DarkCyan;
+}
+
+.flex-item {
+  background: DarkCyan;
+  padding: 0px;
+  width: 100px;
+  height: 20px;
+  margin-top: 10px;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 90%;
+  text-align: center;
+}
+
+.flex-item:hover {
+  background: Yellow;
+  color: black;
+}
+
+.header_image {
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+
+.left-pane {
+  position: absolute;
+  left: 14%;
+  width: 30%;
+  text-align: center;
+}
+
+.sm-left-pane {
+  position: absolute;
+  left: 14%;
+  width: 25%;
+  text-align: center;
+}
+
+.lt-pane {
+  background-color: Yellow;
+  padding: 20px;
+}
+
+.lb-pane {
+  background-color: DarkCyan;
+  padding: 20px;
+  color: whitesmoke;
+}
+
+.right-pane {
+  margin-left: 50%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 80px;
+  background-color: DarkCyan;
+  color: whitesmoke;
+  margin-right: 10%;
+  text-align: center;
+}
+
+.ex-right-pane {
+  margin-left: 40%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 80px;
+  background-color: DarkCyan;
+  color: whitesmoke;
+  margin-right: 5%;
+  text-align: center;
+}
+
+footer {
+  margin-left: 10%;
+  padding-bottom: 20px;
+}
+
+button {
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 50%;
+  text-align: center;
+}
+.textbox {
+  height: 32px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 40%;
+}
+
+select {
+  height: 30px;
+  font-size: 16px;
+  width: 40%;
+}
+
+.pButton {
+  background-color: DarkCyan;
+  color: white;
+}
+
+.yButton {
+  background-color: Yellow;
+}
