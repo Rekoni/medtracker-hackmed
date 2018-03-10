@@ -56,8 +56,8 @@ function signupClick()
 {
   var emailSignup = document.getElementById("sEmail").value;
   var sPass = document.getElementById("sPass").value;
-  var signUpTG = document.getElementById("signUpTG").value;
-  if(emailSignup == "" || sPass == "" || sPassCon == "" || signUpTG == "")
+  var signUpTG = document.getElementById("sPhoneNumber").value;
+  if(emailSignup == "" || sPass == "" || sPassCon == "" || sPhoneNumber == "")
   {
     alert("Please ensure you have entered all the information");
   }
@@ -102,7 +102,7 @@ function signupClick()
         register.open("POST","https://medtracker-hackmed-api.herokuapp.com/register", true);
         register.setRequestHeader("Cache-Control", "no-cache");
         register.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        register.send("email="+emailSignup+"&password="+regHashedPass+"&labGroup="+signUpTG);
+        register.send("email="+emailSignup+"&password="+regHashedPass+"&phoneNumber="+sPhoneNumber);
       }
     }
     //Sends email to server and receives back salt
