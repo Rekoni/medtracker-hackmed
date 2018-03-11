@@ -1,3 +1,4 @@
+
 //A simple hashing algorithm. based on the Java hashCode function
 String.prototype.hashCode = function() {
   var hash = 0, i, chr;
@@ -11,6 +12,25 @@ String.prototype.hashCode = function() {
   return hash;
 };
 
+//Sends user's details to server
+var getLoginPayload = new XMLHttpRequest();
+getLoginPayload.onreadystatechange = function()
+{
+  if (getLoginPayload.readyState == 4 && getLoginPayload.status == 200)
+  {
+    var loginResponse = JSON.parse(this.responseText);
+    if(loginResponse["error"] == true)
+    {
+      alert(loginResponse["message"]);
+    }
+    else
+    {
+      localStorage.setItem("JSON", this.responseText);
+      location.assign("./main.html");
+      //alert("Logged in!");
+    }
+  }
+}
 
 //This function is ran if the user presses the button to log into the site
 function loginClick()
@@ -36,15 +56,15 @@ function loginClick()
         var saltedPass = password + JSON.parse(this.responseText)["payload"]["salt"];
         var hashedPass = saltedPass.hashCode();
         //The hashed password and email are sent to the login HTTP request
-        localStorage.setItem("userType", "student");
-        getTimetable.open("POST", "https://medtracker-hackmed-api.herokuapp.com/login", true);
-        getTimetable.setRequestHeader("Cache-Control", "no-cache");
-        getTimetable.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        getTimetable.send("email="+username+"&password="+hashedPass);
+        localStorage.setItem("userType", "user");
+        getLoginPayload.open("POST", "https://medtracker-hackmed-api.herokuapp.com/login", true);
+        getLoginPayload.setRequestHeader("Cache-Control", "no-cache");
+        getLoginPayload.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        getLoginPayload.send("email="+username+"&password="+hashedPass);
       }
     }
     //Sends email to server, receives back salt
-    hash.open("POST", "https:/medtracker-hackmed-api.herokuapp.com/salt", true);
+    hash.open("POST", "https://medtracker-hackmed-api.herokuapp.com/salt", true);
     hash.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     hash.setRequestHeader("Cache-Control", "no-cache");
     hash.send("email="+username);
@@ -56,7 +76,7 @@ function signupClick()
 {
   var emailSignup = document.getElementById("sEmail").value;
   var sPass = document.getElementById("sPass").value;
-  var signUpTG = document.getElementById("sPhoneNumber").value;
+  var sPhoneNumber = document.getElementById("sPhoneNumber").value;
   if(emailSignup == "" || sPass == "" || sPassCon == "" || sPhoneNumber == "")
   {
     alert("Please ensure you have entered all the information");
@@ -97,6 +117,7 @@ function signupClick()
               alert("User registered successfully - please login")
             }
           }
+
         }
         //Sends user's data to the server, replies as to if they are registered
         register.open("POST","https://medtracker-hackmed-api.herokuapp.com/register", true);
@@ -111,30 +132,4 @@ function signupClick()
     regHash.setRequestHeader("Cache-Control", "no-cache");
     regHash.send("email="+emailSignup);
   }
-}
-
-
-function resetClick()
-{
-  var resetEmail = document.getElementById(rEmail);
-  var resetPassword = new XMLHttpRequest();
-  resetPassword.onreadystatechange = function()
-  {
-    if (resetPassword.readyState == 4 && resetPassword.status == 200)
-    {
-      var resetResponse = JSON.parse(this.responseText);
-      if(resetResponse["error"] == true)
-      {
-        alert(resetResponse["message"]);
-      }
-      else
-      {
-        alert(resetResponse["payload"]);
-      }
-    }
-  }
-  resetPassword.open("POST", "https://medtracker-hackmed-api.herokuapp.com/resetPassword" , true);
-  resetPassword.setRequestHeader("Cache-Control", "no-cache");
-  resetPassword.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  resetPassword.send("email="+resetEmail);
 }

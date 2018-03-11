@@ -26,6 +26,9 @@
       <p>Developed by Team Kilburners, The University of Manchester</p>
     </footer>
     <script>
+    var JSONData = localStorage.getItem("JSON");
+    var parsedJSONData = JSON.parse(JSONData);
+
     //Code to log the user out of the website and return to index
     function logoutClick()
     {
