@@ -1,4 +1,4 @@
-// var session = require('express-session');
+
 //A simple hashing algorithm. based on the Java hashCode function
 String.prototype.hashCode = function() {
   var hash = 0, i, chr;
@@ -141,8 +141,7 @@ function addPrescriptionClick() {
   var dosage = document.getElementById("dosage").value;
   var frequency = document.getElementById("recurring").value;
   var reminder = document.getElementById("reminder").value;
-  alert(req.session.user);
-  var user = req.session.user;
+
   if (!dosage)
     dosage = 1;
 
@@ -160,9 +159,9 @@ function addPrescriptionClick() {
     if (prescriptionRequest.readyState == 4 && prescriptionRequest.status == 200)
     {
       var prescriptionResponse = JSON.parse(this.responseText);
-      if(registerResponse["error"] == true)
+      if(prescriptionResponse["error"] == true)
       {
-        alert(registerResponse["message"]);
+        alert(prescriptionResponse["message"]);
       }
       else
       {
@@ -173,7 +172,7 @@ function addPrescriptionClick() {
     prescriptionRequest.open("POST","https://medtracker-hackmed-api.herokuapp.com/addpres", true);
     prescriptionRequest.setRequestHeader("Cache-Control", "no-cache");
     prescriptionRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    prescriptionRequest.send("user="+user+"&presName="+prescriptionName+"&startDate="+startDate+"&endDate="+endDate
+    prescriptionRequest.send("presName="+prescriptionName+"&startDate="+startDate+"&endDate="+endDate
                              +"&frequency="+frequency+"&reminder="+reminder);
    }
 
