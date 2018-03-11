@@ -1,47 +1,29 @@
 html {
-  background: url(bgimage.jpg);
+  background: #D8D8D8;
 }
 
 a {
   color: whitesmoke;
   text-decoration: none;
+  font: garamond;
 }
 
 a:hover {
   color: black;
 }
 
-.deadlines{
-  width: 90%;
+.titles {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 25px;
+  font-variant: small-caps;
+  font-weight: bold;
 }
 
-.deadlines td {
-  height: 100px;
+p {
+  margin-top: 0px;
   text-align: left;
-}
-
-.timetable th, .timetable td{
-  width: 15%;
-  border: 2px solid whitesmoke;
-  border-collapse: collapse;
-  }
-
-.timetable td {
-  height: 60px;
-}
-
-.timetable th {
-  height: 40px;
-}
-
-.deadlines th, .deadlines td{
-  border: 2px solid black;
-  border-collapse: collapse;
-}
-
-.deadline-box{
-  max-height: 700px;
-  overflow: auto;
 }
 
 body {
@@ -50,49 +32,50 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: arial;
+  padding-bottom: 40px;
+  padding-top: 10px;
+  border-radius: 15px;
 }
 
 .flex-container {
-  padding: 0;
+  padding-top: 5px;
   list-style: none;
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 0px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   background: DarkCyan;
+  border-radius: 5px;
 }
 
 .flex-item {
   background: DarkCyan;
   padding: 0px;
   width: 100px;
-  height: 20px;
-  margin-top: 10px;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 0px;
   color: whitesmoke;
   font-weight: bold;
-  font-size: 90%;
+  font-size: 100%;
   text-align: center;
+  font-variant: small-caps;
 }
 
 .flex-item:hover {
-  background: Yellow;
   color: black;
+
 }
 
 .header_image {
   align-content: center;
   margin-left: 10%;
   margin-right: 10%;
-
-}
-
-.left-pane {
-  position: absolute;
-  left: 14%;
-  width: 30%;
-  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .sm-left-pane {
@@ -100,11 +83,6 @@ body {
   left: 14%;
   width: 25%;
   text-align: center;
-}
-
-.lt-pane {
-  background-color: Yellow;
-  padding: 20px;
 }
 
 .lb-pane {
@@ -115,14 +93,52 @@ body {
 
 .right-pane {
   margin-left: 50%;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   background-color: DarkCyan;
   color: whitesmoke;
   margin-right: 10%;
   text-align: center;
+  border-radius: 15px;
+}
+
+.left-pane {
+  position: absolute;
+  left: 14%;
+  width: 30%;
+  text-align: center;
+  border-radius: 15px;
+  padding-bottom: 40px;
+  padding-top: 15px;
+  background-color: Yellow;
+}
+
+.right-about {
+  margin-left: 50%;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  background-color: DarkCyan;
+  color: whitesmoke;
+  margin-right: 10%;
+  text-align: left;
+  border-radius: 15px;
+}
+.left-about {
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  left: 14%;
+  width: 30%;
+  text-align: left;
+  border-radius: 15px;
+  background-color: Yellow;
+
 }
 
 .ex-right-pane {
@@ -138,8 +154,10 @@ body {
 }
 
 footer {
-  margin-left: 10%;
-  padding-bottom: 20px;
+  padding-left: 5px;
+  position:absolute;
+  height: 40px;
+  margin-bottom: 0px;
 }
 
 button {
@@ -149,12 +167,13 @@ button {
   font-weight: bold;
   width: 50%;
   text-align: center;
+  padding-top: 0px;
 }
 .textbox {
   height: 32px;
   font-size: 16px;
   border-radius: 10px;
-  width: 40%;
+  width: 70%;
 }
 
 select {
