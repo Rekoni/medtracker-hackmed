@@ -167,7 +167,8 @@ button {
   font-weight: bold;
   width: 50%;
   text-align: center;
-  padding-top: 0px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 .textbox {
   height: 32px;
@@ -228,7 +229,7 @@ select {
 
 { box-sizing: border-box; }
 
-input[type=text], select, textarea{
+.container input[type=text], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -237,7 +238,7 @@ input[type=text], select, textarea{
   resize: vertical;
 }
 
-input[type=number], select, textarea{
+.container input[type=number], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -246,7 +247,7 @@ input[type=number], select, textarea{
   resize: vertical;
 }
 
-input[type=datetime-local], select, textarea{
+.container input[type=datetime-local], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -255,7 +256,7 @@ input[type=datetime-local], select, textarea{
   resize: vertical;
 }
 
-input[type=time], select, textarea{
+.container input[type=time], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -264,7 +265,7 @@ input[type=time], select, textarea{
   resize: vertical;
 }
 
-input[type=date], select, textarea{
+.container input[type=date], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -273,7 +274,7 @@ input[type=date], select, textarea{
   resize: vertical;
 }
 
- select {
+ .container select {
    width: 100%;
    padding: 16px 20px;
    border: none;
@@ -281,12 +282,12 @@ input[type=date], select, textarea{
    background-color: #84d0d8;
  }
 
- label {
+.container label {
    padding: 12px 12px 12px 0;
    display: inline-block;
  }
 
-input[type=submit] {
+.container input[type=submit] {
   background-color: #2694a0;
   color: white;
   padding: 12px 20px;
@@ -296,7 +297,7 @@ input[type=submit] {
   float: right;
 }
 
-input[type=submit]:hover {
+.container input[type=submit]:hover {
   background-color: #2694a0;
 }
 
