@@ -1,4 +1,4 @@
-
+var session = require('express-session');
 //A simple hashing algorithm. based on the Java hashCode function
 String.prototype.hashCode = function() {
   var hash = 0, i, chr;
@@ -141,7 +141,7 @@ function addPrescriptionClick() {
   var dosage = document.getElementById("dosage").value;
   var frequency = document.getElementById("recurring").value;
   var reminder = document.getElementById("reminder").value;
-  alert(user);
+  alert(req.session.user);
   var user = req.session.user;
   if (!dosage)
     dosage = 1;
