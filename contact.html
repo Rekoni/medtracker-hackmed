@@ -13,13 +13,52 @@
 
     <nav>
       <div class="menu">
+        <!--This flex container stores the menu items for the page-->
         <ul class="flex-container">
           <li class="flex-item"><a href="index.html">Home</a></li>
+          <li class="flex-item">
+<!-- dropdown menu -->
+<div class="dropdown">
+ <button onclick="myFunction()" class="dropbtn">Prescriptions</button>
+ <div id="myDropdown" class="dropdown-content">
+   <a href="newprescription.html">Add new prescription</a>
+   <a href="existing.html">Existing Prescriptions</a>
+   <a href="history.html">Prescription history</a>
+ </div>
+</div>
+<!-- end dropdown bit -->
+           </li>
           <li class="flex-item"><a href="about.html">About</a></li>
           <li class="flex-item"><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
     </nav>
+<!-- add javascript bit-->
+
+<script>
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+
+<!-- scrip end-->
 
     <div class ="left-pane">
         <div class ="titles">Address</div>
