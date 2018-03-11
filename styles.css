@@ -276,10 +276,10 @@ select {
 
  .container select {
    width: 100%;
-   padding: 16px 20px;
+   height: 150%;
    border: none;
    border-radius: 4px;
-   background-color: #84d0d8;
+   background-color: white;
  }
 
 .container label {

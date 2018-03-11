@@ -66,12 +66,12 @@ if (!event.target.matches('.dropbtn')) {
 <!-- form woohoo -->
 
   <div class="container">
-  <form action="" method="POST">
+  <form method="POST">
 
 <!-- name of the Prescription-->
     <div class="row">
       <div class="col-25">
-        <label for="pname">Prescription</label>
+        <label for="pname">Prescription*</label>
       </div>
       <div class="col-75">
         <input type="text" id="pname" name="pname" placeholder="What's your prescription called?">
@@ -82,12 +82,12 @@ if (!event.target.matches('.dropbtn')) {
     <!-- treatment time -->
     <div class="row">
       <div class="col-25">
-        <label for="time">Treatment time (start / end)</label>
+        <label for="time">Treatment time (start / end)*</label>
       </div>
       <!-- start date -->
       <div id = "date" class="col-75">
-        <input id = "startDate" style = "display:block" type="date" placeholder="Start Date (DD/MM/YYYY)" name="startDate"
-                min="<?php echo $dateMinimum; ?>">
+        <input id = "startDate" style = "display:block" type="date" placeholder="Start Date (DD/MM/YYYY)"
+        name="startDate" min="2018-03-11" max="2020-01-02">
       </div>
     </div>
       <!-- end date -->
@@ -95,8 +95,8 @@ if (!event.target.matches('.dropbtn')) {
         <div class="col-25" margin-top=0px>
         </div>
       <div id = "date" class="col-75">
-        <input id = "endDate" style = "display:block" type="date" placeholder="End Date (DD/MM/YYYY)" name="endDate"
-                min="<?php echo $dateMinimum; ?>">
+        <input id = "endDate" style = "display:block" type="date"
+        placeholder="End Date (DD/MM/YYYY)" name="endDate"  min="2018-03-11" max="2020-01-02">
       </div>
     </div>
 
@@ -114,7 +114,7 @@ if (!event.target.matches('.dropbtn')) {
     <!-- Frequency -->
     <div class="row">
       <div class="col-25">
-        <label for="recurring">Frequency</label>
+        <label for="recurring">Frequency* </label>
       </div>
       <div class="col-75">
         <select id="recurring" name="recurring">
@@ -135,14 +135,16 @@ if (!event.target.matches('.dropbtn')) {
       <div class="col-75">
         <textarea id="reminder" name="reminder"
         placeholder= "Set a reminder! (If nothing is entered, you'll receive the default reminder)"
-        style="height:100px">
-        </textarea>
+        style="height:100px"></textarea>
       </div>
     </div>
 <br>
+    <div>
+      * = Mandatory fields
+    </div>
     <!-- Submit. -->
     <div class="row">
-      <input type="submit" text-align=center value="Submit">
+      <input type="submit" text-align=center value="Submit" onclick="addPrescriptionClick()">
     </div>
   </form>
 </div>

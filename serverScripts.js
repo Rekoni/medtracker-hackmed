@@ -133,3 +133,47 @@ function signupClick()
     regHash.send("email="+emailSignup);
   }
 }
+
+function addPrescriptionClick() {
+  var prescriptionName = document.getElementById("pname").value;
+  var startDate = document.getElementById("startDate").value;
+  var endDate = document.getElementById("endDate").value;
+  var dosage = document.getElementById("dosage").value;
+  var frequency = document.getElementById("recurring").value;
+  var reminder = document.getElementById("reminder").value;
+  alert(user);
+  var user = req.session.user;
+  if (!dosage)
+    dosage = 1;
+
+  if (!reminder)
+    reminder = "Time to take your " + prescriptionName + "!";
+  reminder += "\nDosage: " + dosage;
+
+
+  if (!prescriptionName || !startDate || !endDate || !frequency)
+    return alert("Please fill mandatory fields!");
+
+  var prescriptionRequest = new XMLHttpRequest();
+  prescriptionRequest.onreadystatechange = function()
+  {
+    if (prescriptionRequest.readyState == 4 && prescriptionRequest.status == 200)
+    {
+      var prescriptionResponse = JSON.parse(this.responseText);
+      if(registerResponse["error"] == true)
+      {
+        alert(registerResponse["message"]);
+      }
+      else
+      {
+        alert("Prescription added successfully!");
+      }
+    }
+
+    prescriptionRequest.open("POST","https://medtracker-hackmed-api.herokuapp.com/addpres", true);
+    prescriptionRequest.setRequestHeader("Cache-Control", "no-cache");
+    prescriptionRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    prescriptionRequest.send("user="+user+"&presName="+prescriptionName+"&startDate="+startDate+"&endDate="+endDate
+                             +"&frequency="+frequency+"&reminder="+reminder);
+
+}
