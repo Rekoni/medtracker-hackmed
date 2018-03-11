@@ -155,21 +155,7 @@ function addPrescriptionClick() {
 
 
   var prescriptionRequest = new XMLHttpRequest();
-  prescriptionRequest.onreadystatechange = function()
-  {
-    if (prescriptionRequest.readyState == 4 && prescriptionRequest.status == 200)
-    {
-      var prescriptionResponse = JSON.parse(this.responseText);
-      if(prescriptionResponse["error"] == true)
-      {
-        alert(prescriptionResponse["message"]);
-      }
-      else
-      {
-        alert("Prescription added successfully!");
-      }
-    }
-  }
+
 
     prescriptionRequest.open("POST","http://localhost:5000/addpres", true);
     prescriptionRequest.setRequestHeader("Cache-Control", "no-cache");
