@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png">
+    <title>Medtracker</title>
+  </head>
+
+  <body>
+    <script src="serverScripts.js"></script>
+    <nav>
+    <div class="header_image">
+      <img src="MedTracker.png" alt="Website logo and title" width="100%">
+    </div>
+
+    <div class="menu">
+      <!--This flex container stores the menu items for the page-->
+      <ul class="flex-container">
+        <li class="flex-item"><a href="index.html">Home</a></li>
+        <li class="flex-item"><a href="about.html">About</a></li>
+        <li class="flex-item"><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- form woohoo -->
+
+  <div class="container">
+  <form action="" method="POST">
+
+<!-- name of the Prescription-->
+    <div class="row">
+      <div class="col-25">
+        <label for="pname">Prescription</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="pname" name="pname" placeholder="What's your prescription called?">
+      </div>
+    </div>
+
+
+    <!-- treatment time -->
+    <div class="row">
+      <div class="col-25">
+        <label for="time">Treatment time (start / end)</label>
+      </div>
+      <!-- start date -->
+      <div id = "date" class="col-75">
+        <input id = "startDate" style = "display:block" type="date" placeholder="Start Date (DD/MM/YYYY)" name="startDate"
+                min="<?php echo $dateMinimum; ?>">
+      </div>
+    </div>
+      <!-- end date -->
+      <div class="row">
+        <div class="col-25" margin-top=0px>
+        </div>
+      <div id = "date" class="col-75">
+        <input id = "endDate" style = "display:block" type="date" placeholder="End Date (DD/MM/YYYY)" name="endDate"
+                min="<?php echo $dateMinimum; ?>">
+      </div>
+    </div>
+
+    <!-- drug dosage-->
+        <div class="row">
+          <div class="col-25">
+            <label for="dosage">Dosage</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="dosage" name="dosage" placeholder="# of pills, dose in mg's, etc">
+          </div>
+        </div>
+
+
+    <!-- Frequency -->
+    <div class="row">
+      <div class="col-25">
+        <label for="recurring">Frequency</label>
+      </div>
+      <div class="col-75">
+        <select id="recurring" name="recurring">
+          <option value="dailymorning">Once a day (morning)</option>
+          <option value="dailynight">Once a day (night)</option>
+          <option value="dailytwice">Twice a day</option>
+        </select>
+      </div>
+    </div>
+
+
+    <!-- text that goes in the message,
+      if empty, send default message -->
+    <div class="row">
+      <div class="col-25">
+        <label for="reminder">Reminder</label>
+      </div>
+      <div class="col-75">
+        <textarea id="reminder" name="reminder"
+        placeholder= "Set a reminder! (If nothing is entered, you'll receive the default reminder)"
+        style="height:100px">
+        </textarea>
+      </div>
+    </div>
+<br>
+    <!-- Submit. -->
+    <div class="row">
+      <input type="submit" text-align=center value="Submit">
+    </div>
+  </form>
+</div>
+<!-- End of mySQL form. -->
+</body>
+</html>
