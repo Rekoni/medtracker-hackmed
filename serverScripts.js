@@ -1,4 +1,4 @@
-var session = require('express-session');
+// var session = require('express-session');
 //A simple hashing algorithm. based on the Java hashCode function
 String.prototype.hashCode = function() {
   var hash = 0, i, chr;
