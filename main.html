@@ -74,7 +74,7 @@
 
     var JSONData = localStorage.getItem("JSON");
     var parsedJSONData = JSON.parse(JSONData);
-    testLogin.open("POST", "http://localhost:5000/testLogin", true);
+    testLogin.open("POST", "https://medtracker-hackmed-api.herokuapp.com/testLogin", true);
     testLogin.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     testLogin.setRequestHeader("Cache-Control", "no-cache");
     if(localStorage.getItem("userType") == "user")
@@ -91,7 +91,7 @@
     function logoutClick()
     {
       var logout = new XMLHttpRequest();
-      logout.open("POST", "http://localhost:5000/logout" , true);
+      logout.open("POST", "https://medtracker-hackmed-api.herokuapp.com/logout" , true);
       logout.setRequestHeader("Cache-Control", "no-cache");
       logout.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       logout.send("token="+parsedJSONData["payload"]["token"]);
