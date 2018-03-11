@@ -69,12 +69,15 @@
     <script>
     var JSONData = localStorage.getItem("JSON");
     var parsedJSONData = JSON.parse(JSONData);
-
+    if(parsedJSONData == null)
+    {
+      location.assign("./error.html");
+    }
     //Code to log the user out of the website and return to index
     function logoutClick()
     {
       var logout = new XMLHttpRequest();
-      logout.open("POST", "https://medtracker-hackmed-api.herokuapp.com/logout" , true);
+      logout.open("POST", "http://localhost:5000/logout" , true);
       logout.setRequestHeader("Cache-Control", "no-cache");
       logout.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       logout.send("token="+parsedJSONData["payload"]["token"]);

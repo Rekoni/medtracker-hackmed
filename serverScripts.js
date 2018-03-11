@@ -57,14 +57,14 @@ function loginClick()
         var hashedPass = saltedPass.hashCode();
         //The hashed password and email are sent to the login HTTP request
         localStorage.setItem("userType", "user");
-        getLoginPayload.open("POST", "https://medtracker-hackmed-api.herokuapp.com/login", true);
+        getLoginPayload.open("POST", "http://localhost:5000/login", true);
         getLoginPayload.setRequestHeader("Cache-Control", "no-cache");
         getLoginPayload.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         getLoginPayload.send("email="+username+"&password="+hashedPass);
       }
     }
     //Sends email to server, receives back salt
-    hash.open("POST", "https://medtracker-hackmed-api.herokuapp.com/salt", true);
+    hash.open("POST", "http://localhost:5000/salt", true);
     hash.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     hash.setRequestHeader("Cache-Control", "no-cache");
     hash.send("email="+username);
@@ -120,14 +120,14 @@ function signupClick()
 
         }
         //Sends user's data to the server, replies as to if they are registered
-        register.open("POST","https://medtracker-hackmed-api.herokuapp.com/register", true);
+        register.open("POST","http://localhost:5000/register", true);
         register.setRequestHeader("Cache-Control", "no-cache");
         register.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         register.send("email="+emailSignup+"&password="+regHashedPass+"&phoneNumber="+sPhoneNumber);
       }
     }
     //Sends email to server and receives back salt
-    regHash.open("POST", "https://medtracker-hackmed-api.herokuapp.com/salt", true);
+    regHash.open("POST", "http://localhost:5000/salt", true);
     regHash.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     regHash.setRequestHeader("Cache-Control", "no-cache");
     regHash.send("email="+emailSignup);
@@ -153,6 +153,7 @@ function addPrescriptionClick() {
   if (!prescriptionName || !startDate || !endDate || !frequency)
     return alert("Please fill mandatory fields!");
 
+
   var prescriptionRequest = new XMLHttpRequest();
   prescriptionRequest.onreadystatechange = function()
   {
@@ -168,12 +169,13 @@ function addPrescriptionClick() {
         alert("Prescription added successfully!");
       }
     }
+  }
 
-    prescriptionRequest.open("POST","https://medtracker-hackmed-api.herokuapp.com/addpres", true);
+    prescriptionRequest.open("POST","http://localhost:5000/addpres", true);
     prescriptionRequest.setRequestHeader("Cache-Control", "no-cache");
     prescriptionRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    prescriptionRequest.send("presName="+prescriptionName+"&startDate="+startDate+"&endDate="+endDate
+    prescriptionRequest.send("token="+parsedJSONData["payload"]["token"]+"&presName="+prescriptionName+"&startDate="+startDate+"&endDate="+endDate
                              +"&frequency="+frequency+"&reminder="+reminder);
-   }
+
 
 }
