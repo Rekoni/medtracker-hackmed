@@ -175,5 +175,6 @@ function addPrescriptionClick() {
     prescriptionRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     prescriptionRequest.send("user="+user+"&presName="+prescriptionName+"&startDate="+startDate+"&endDate="+endDate
                              +"&frequency="+frequency+"&reminder="+reminder);
+   }
 
 }
